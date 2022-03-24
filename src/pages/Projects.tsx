@@ -1,18 +1,9 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container } from "semantic-ui-react";
-import styled from "styled-components";
 import { Card } from "../shared/Card";
 import { withPageTitle } from "../shared/PageTitle";
 import { H1 } from "../shared/Typography";
-
-const TechnologiesContainer = styled.div`
-  margin-bottom: 0.5rem;
-
-  & > .label {
-    margin-top: 0.5rem;
-  }
-`;
 
 const Projects = () => {
   return (
