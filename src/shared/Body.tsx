@@ -10,6 +10,7 @@ const Container = styled.div<{
   theme: MantineTheme;
 }>`
   height: 100vh;
+  overflow-y: scroll;
   background-color: ${(props) =>
     props.colorScheme === "dark"
       ? props.theme.colors.gray[1]
@@ -20,6 +21,7 @@ const Content = styled.div<{ noPadding?: boolean }>`
   height: 100%;
   padding: 4rem;
   padding-top: ${(props) => (props.noPadding ? "4rem" : "16rem")};
+  padding-bottom: 4rem;
 `;
 
 export const Body: React.FC<{ noPadding?: boolean }> = ({

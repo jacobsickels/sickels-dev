@@ -20,7 +20,12 @@ const IMG = styled.img`
   float: right;
 
   @media (max-width: 992px) {
-    margin: 0 auto;
+    position: relative; /* where the next element will be automatically positioned */
+    display: inline-block; /* causes element width to shrink to fit content */
+    left: 50%; /* moves left side of image/element to center of parent element */
+    transform: translate(
+      -50%
+    ); /* centers image/element on "left: 50%" position */
     float: none;
   }
 `;
@@ -78,7 +83,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Home = () => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
   const isDark = colorScheme === "dark";
 

@@ -1,4 +1,4 @@
-import { Button, useMantineColorScheme, useMantineTheme } from "@mantine/core";
+import { Button } from "@mantine/core";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
@@ -9,10 +9,6 @@ import { withPageTitle } from "../shared/PageTitle";
 import { H1 } from "../shared/Typography";
 
 const Projects = () => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const theme = useMantineTheme();
-  const isDark = colorScheme === "dark";
-
   const { link } = useTextColor();
 
   return (
