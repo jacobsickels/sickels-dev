@@ -1,15 +1,26 @@
+import { Button, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Button, Container } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
+import { Body } from "../shared/Body";
 import { Card } from "../shared/Card";
+import { useTextColor } from "../shared/hooks";
 import { withPageTitle } from "../shared/PageTitle";
 import { H1 } from "../shared/Typography";
 
 const Projects = () => {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const isDark = colorScheme === "dark";
+
+  const { link } = useTextColor();
+
   return (
-    <Container style={{ marginTop: "4rem" }}>
+    <Body noPadding>
       <Link to="/">
-        <Button content="Back" icon="arrow left" labelPosition="left" />
+        <Button color="gray" leftIcon={<Icon name="arrow left" />}>
+          Back
+        </Button>
       </Link>
       <H1>Projects</H1>
 
@@ -21,7 +32,7 @@ const Projects = () => {
             throughout the games and all of their forms, also known as a
             <a
               href="https://bulbapedia.bulbagarden.net/wiki/Living_Pok%C3%A9dex"
-              style={{ marginLeft: "0.25rem" }}
+              style={{ marginLeft: "0.25rem", color: link }}
             >
               living pokedex.
             </a>
@@ -38,7 +49,7 @@ const Projects = () => {
           { label: "Firebase", icon: "database" },
         ]}
       />
-    </Container>
+    </Body>
   );
 };
 
