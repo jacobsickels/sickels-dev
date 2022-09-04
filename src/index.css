@@ -36,3 +36,25 @@ span {
   background-color: #254e70;
   color: white;
 }
+
+#gradient-canvas-dark {
+  width:100vw;
+  height:100vh;
+  position: fixed;
+  z-index: 0;
+  --gradient-color-1: #001413; 
+  --gradient-color-2: #2e8485; 
+  --gradient-color-3: #145152;  
+  --gradient-color-4: #082121;
+}
+
+#gradient-canvas-light {
+  width:100vw;
+  height:100vh;
+  position: fixed;
+  z-index: 0;
+  --gradient-color-1: #8ef1ec; 
+  --gradient-color-2: #ffffff; 
+  --gradient-color-3: #11ccd0;  
+  --gradient-color-4: #007a7a;
+}

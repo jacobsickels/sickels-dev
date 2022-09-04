@@ -4,7 +4,6 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from "@mantine/core";
-import * as React from "react";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import { Body } from "../shared/Body";
@@ -18,6 +17,7 @@ const IMG = styled.img`
   padding: 1rem;
   max-width: 30rem;
   float: right;
+  position: relative;
 
   @media (max-width: 992px) {
     position: relative; /* where the next element will be automatically positioned */
@@ -31,11 +31,11 @@ const IMG = styled.img`
 `;
 
 const Title = styled.div<{ isDark?: boolean; theme: any }>`
+  position: relative;
   padding: 1rem;
-  color: ${(props) =>
-    props.isDark
-      ? props.theme.colors.gray[9]
-      : props.theme.colors.gray[1]} !important;
+  opacity: 0.75;
+  font-weight: 700;
+  color: ${(props) => (props.isDark ? "white" : "black")} !important;
   & > h1 {
     font-size: 6rem;
     line-height: 6rem;
@@ -58,6 +58,21 @@ const Title = styled.div<{ isDark?: boolean; theme: any }>`
 const P = styled.p`
   font-size: 2rem;
   line-height: 2rem;
+`;
+
+const H1 = styled.h1<{ isDark?: boolean; theme: any }>`
+  font-size: 15rem;
+  position: relative;
+  color: ${(props) => (props.isDark ? "white" : "black")};
+  opacity: 0.75;
+  padding: 0;
+  margin: 0;
+  line-height: 15rem;
+
+  @media (max-width: 768px) {
+    font-size: 10rem;
+    line-height: 10rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -94,8 +109,8 @@ const Home = () => {
           <IMG src="./img/headshot.jpg" alt="Designer" />
         </Grid.Col>
         <Grid.Col sm={12} md={7}>
+          <H1 isDark={isDark}>Hello!</H1>
           <Title isDark={isDark} theme={theme}>
-            <h1>Hello!</h1>
             <p>I'm Jacob Sickels</p>
 
             <P>a Software Engineer with a passion for UI/UX</P>

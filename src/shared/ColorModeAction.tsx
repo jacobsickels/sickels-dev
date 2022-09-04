@@ -13,6 +13,7 @@ const ColorModeAction: React.FC = () => {
         color={dark ? "blue" : "yellow"}
         onClick={() => toggleColorScheme()}
         title="Toggle color scheme"
+        sx={{ position: "relative", zIndex: 20 }}
       >
         {dark ? <Icon name="moon" /> : <Icon name="sun" />}
       </ActionIcon>

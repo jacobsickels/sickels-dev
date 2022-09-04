@@ -3,7 +3,9 @@ import {
   useMantineColorScheme,
   useMantineTheme,
 } from "@mantine/core";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { Gradient } from "./Gradient";
 
 const Container = styled.div<{
   colorScheme?: "dark" | "light";
@@ -12,10 +14,6 @@ const Container = styled.div<{
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: ${(props) =>
-    props.colorScheme === "dark"
-      ? props.theme.colors.gray[1]
-      : props.theme.colors.gray[9]};
 `;
 
 const Content = styled.div<{ noPadding?: boolean }>`
@@ -29,16 +27,52 @@ const Content = styled.div<{ noPadding?: boolean }>`
   }
 `;
 
+const gradient: any = new Gradient();
+
 export const Body: React.FC<{ noPadding?: boolean }> = ({
   children,
   noPadding,
 }) => {
   const theme = useMantineTheme();
   const { colorScheme } = useMantineColorScheme();
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      console.log(ref);
+
+      if (colorScheme === "dark") {
+        gradient.initGradient("#gradient-canvas-dark");
+      } else {
+        gradient.initGradient("#gradient-canvas-light");
+      }
+    }
+  }, [ref, colorScheme]);
 
   return (
-    <Container colorScheme={colorScheme} theme={theme}>
-      <Content noPadding={noPadding}>{children}</Content>
-    </Container>
+    <>
+      <canvas
+        id={
+          colorScheme === "dark"
+            ? "gradient-canvas-dark"
+            : "gradient-canvas-light"
+        }
+        data-transition-in
+        width="100vh"
+      />
+      <Container
+        colorScheme={colorScheme}
+        theme={theme}
+        ref={ref as any}
+        style={{
+          zIndex: 3,
+          backgroundColor: "none !important",
+          width: "100vw",
+          padding: "unset",
+        }}
+      >
+        <Content noPadding={noPadding}>{children}</Content>
+      </Container>
+    </>
   );
 };
