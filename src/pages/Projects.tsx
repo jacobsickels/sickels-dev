@@ -1,5 +1,4 @@
 import { Button } from "@mantine/core";
-import * as React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import { Body } from "../shared/Body";
@@ -10,6 +9,8 @@ import { H1 } from "../shared/Typography";
 
 const Projects = () => {
   const { link } = useTextColor();
+
+  console.error("ABC123 This is a test error!");
 
   return (
     <Body noPadding>
