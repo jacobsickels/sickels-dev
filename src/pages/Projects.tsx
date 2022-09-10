@@ -10,7 +10,9 @@ import { H1 } from "../shared/Typography";
 const Projects = () => {
   const { link } = useTextColor();
 
-  console.error("ABC123 This is a test error!");
+  console.error("ERROR ABC123 This is a test error!");
+  console.log("LOG ABC123 This is a test log!");
+  console.warn("WARN ABC123 This is a test log!");
 
   return (
     <Body noPadding>
